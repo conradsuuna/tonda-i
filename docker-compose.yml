@@ -1,10 +1,12 @@
 version: '3'
 services:
-  data-logger:
+  tonda-app:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 3100:3000 # to test, use port 3003
+      - 3100:3000 # to test, use port 3100
     environment:
       - NODE_ENV=production
+    volumes:
+      - .env
