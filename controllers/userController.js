@@ -19,11 +19,21 @@ export const createUser = async (req, res) => {
       });
     }
 
-    const user = await User.create({
+    let payload = {
       username,
       email,
       password: hashPassword(password),
-    });
+    }
+
+    // would ideally require a seperate route for this
+    if (req.body.userRole) {
+      payload = {
+        ...payload,
+        userRole: req.body.userRole,
+      };
+    }
+
+    const user = await User.create(payload);
 
     return res.status(201).json({
       message: 'User created successfully',

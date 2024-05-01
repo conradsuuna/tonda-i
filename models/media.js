@@ -26,7 +26,7 @@ export const Media = sequelize.define('Media', {
   },
   dimensions: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   createdAt: {
     type: DataTypes.DATE,
