@@ -8,7 +8,7 @@ COPY .env ./
 
 COPY . .
 
-RUN npm ci
+RUN npm i
 
 ENV NODE_ENV production
 
